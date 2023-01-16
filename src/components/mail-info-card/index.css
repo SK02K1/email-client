@@ -1,0 +1,21 @@
+.mail-info-card {
+  display: flex;
+  border: 1px solid var(--clr-border);
+  border-radius: 5px;
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.info-content-container {
+  margin-left: 1rem;
+}
+
+.info-content-container p {
+  margin-bottom: 0.25rem;
+}
+
+.info-content-container .text-bold {
+  font-weight: 500;
+}

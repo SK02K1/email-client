@@ -1,9 +1,15 @@
-import './App.css';
+import '@src/App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Home, Mails } from '@src/pages';
 
 export const App = () => {
   return (
     <div className='App'>
-      <h2>Hellew World!</h2>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/mails' element={<Mails />} />
+      </Routes>
     </div>
   );
 };
