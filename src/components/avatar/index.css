@@ -1,0 +1,14 @@
+.avatar {
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: var(--clr-accent);
+  color: var(--clr-background-secondary);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
