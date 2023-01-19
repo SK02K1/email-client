@@ -1,14 +1,26 @@
-import { Avatar } from '@src/components';
 import './index.css';
+import { useNavigate } from 'react-router-dom';
+import { Avatar } from '@src/components';
+import { getFormattedDate } from '@src/utils';
 
-export const MailInfoCard = ({ data }) => {
-  const { date, from, subject, short_description } = data;
+export const MailInfoCard = ({ data, selectedMailId }) => {
+  const navigate = useNavigate();
+
+  const { id, date, from, subject, short_description } = data;
   const { name, email } = from;
 
-  const formattedDate = new Date(date).toLocaleString('en-IN');
+  const formattedDate = getFormattedDate(date);
+
+  const cardClickHandler = () => {
+    navigate(`single-mail/${id}`);
+  };
 
   return (
-    <div className='mail-info-card'>
+    <div
+      data-active-email={id === selectedMailId}
+      onClick={cardClickHandler}
+      className='mail-info-card'
+    >
       <Avatar name={name} />
       <div className='info-content-container'>
         <p>

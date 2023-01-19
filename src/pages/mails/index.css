@@ -1,0 +1,10 @@
+.layout {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  column-gap: 1.5rem;
+}
+
+.mails-container {
+  flex-grow: 1;
+}
