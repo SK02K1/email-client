@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.mail-info-card[data-active-email='true'] {
+  border-color: var(--clr-accent);
+}
+
 .info-content-container {
   margin-left: 1rem;
 }

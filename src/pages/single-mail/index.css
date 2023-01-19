@@ -1,0 +1,51 @@
+.mail-body-container,
+.mail-content-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mail-body-container {
+  column-gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  border: 1px solid var(--clr-border);
+  background: #fff;
+  flex-basis: 80%;
+  position: sticky;
+  top: 1rem;
+  overflow-y: auto;
+  height: 90%;
+}
+
+.mail-content-container {
+  width: 100%;
+}
+
+.mail-body-container p {
+  margin: 1.5rem 0;
+}
+
+.mail-content-header {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.mail-subject {
+  font-weight: 500;
+}
+
+.mail-date {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.btn-favorite {
+  margin-left: auto;
+  border-radius: 50px;
+  background-color: var(--clr-accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
