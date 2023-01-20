@@ -12,6 +12,10 @@
   border-color: var(--clr-accent);
 }
 
+.mail-info-card[data-read-email='true'] {
+  background-color: var(--clr-background-secondary);
+}
+
 .info-content-container {
   margin-left: 1rem;
 }
@@ -22,4 +26,10 @@
 
 .info-content-container .text-bold {
   font-weight: 500;
+}
+
+.favorite-status {
+  color: var(--clr-accent);
+  margin-left: 1rem;
+  font-weight: 600;
 }

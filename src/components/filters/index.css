@@ -1,0 +1,23 @@
+.filters {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: black;
+}
+
+.btn-filter {
+  border: none;
+  padding: 0.25rem 1rem;
+  border-radius: 50px;
+  margin-right: 0.5rem;
+  background: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-filter[data-active_filter='true'] {
+  background-color: var(--clr-btn-filter);
+  border: 1px solid var(--clr-border);
+}
