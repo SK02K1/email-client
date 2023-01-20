@@ -8,6 +8,7 @@ const initialState = {
   total: null,
   error: null,
   status: 'idle',
+  selectedFilter: 'All',
 };
 
 const name = 'emails';
@@ -56,6 +57,9 @@ const emailsSlice = createSlice({
       localStorage.setItem('read-mails', JSON.stringify(readMails));
       state.readMails = readMails;
     },
+    changeSelectedFilter: (state, { payload }) => {
+      state.selectedFilter = payload.filter;
+    },
   },
   extraReducers(builder) {
     // GET ALL EMAILS
@@ -78,6 +82,11 @@ const emailsSlice = createSlice({
   },
 });
 
-export const { markAsFavorite, removeFromFavorites, markAsRead } =
-  emailsSlice.actions;
+export const {
+  removeFromFavorites,
+  changeSelectedFilter,
+  markAsFavorite,
+  markAsRead,
+} = emailsSlice.actions;
+
 export const emailsReducer = emailsSlice.reducer;
