@@ -1,8 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   list: null,
+  favorites: JSON.parse(localStorage.getItem('favorite-mails')) ?? [],
   total: null,
   error: null,
   status: 'idle',
@@ -35,7 +36,20 @@ export const getAllEmails = createAsyncThunk(
 const emailsSlice = createSlice({
   name,
   initialState,
-  reducers: {},
+  reducers: {
+    markAsFavorite: (state, { payload }) => {
+      const { mailId } = payload;
+      const favorites = state.favorites.concat(mailId);
+      localStorage.setItem('favorite-mails', JSON.stringify(favorites));
+      state.favorites = favorites;
+    },
+    removeFromFavorites: (state, { payload }) => {
+      const { mailId } = payload;
+      const favorites = state.favorites.filter((id) => id !== mailId);
+      localStorage.setItem('favorite-mails', JSON.stringify(favorites));
+      state.favorites = favorites;
+    },
+  },
   extraReducers(builder) {
     // GET ALL EMAILS
     builder.addCase(getAllEmails.pending, (state, { payload }) => {
@@ -57,4 +71,5 @@ const emailsSlice = createSlice({
   },
 });
 
+export const { markAsFavorite, removeFromFavorites } = emailsSlice.actions;
 export const emailsReducer = emailsSlice.reducer;

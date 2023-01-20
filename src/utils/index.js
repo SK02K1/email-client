@@ -5,3 +5,7 @@ export const findMailById = (mails, mailId) => {
 export const getFormattedDate = (date) => {
   return new Date(date).toLocaleString('en-IN');
 };
+
+export const isMarkedAsFavorite = (favorites, mailId) => {
+  return Boolean(favorites.find((id) => id === mailId));
+};

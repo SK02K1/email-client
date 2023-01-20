@@ -1,15 +1,17 @@
 import './index.css';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getFormattedDate, isMarkedAsFavorite } from '@src/utils';
 import { Avatar } from '@src/components';
-import { getFormattedDate } from '@src/utils';
 
 export const MailInfoCard = ({ data, selectedMailId }) => {
   const navigate = useNavigate();
-
+  const { favorites } = useSelector((store) => store.emails);
   const { id, date, from, subject, short_description } = data;
   const { name, email } = from;
 
   const formattedDate = getFormattedDate(date);
+  const isFavorite = isMarkedAsFavorite(favorites, id);
 
   const cardClickHandler = () => {
     navigate(`single-mail/${id}`);
@@ -32,6 +34,7 @@ export const MailInfoCard = ({ data, selectedMailId }) => {
         </p>
         <p>{short_description}</p>
         <small>{formattedDate}</small>
+        {isFavorite && <small className='favorite-status'>Favorite</small>}
       </div>
     </div>
   );

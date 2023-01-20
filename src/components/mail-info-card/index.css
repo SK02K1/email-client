@@ -23,3 +23,9 @@
 .info-content-container .text-bold {
   font-weight: 500;
 }
+
+.favorite-status {
+  color: var(--clr-accent);
+  margin-left: 1rem;
+  font-weight: 600;
+}
