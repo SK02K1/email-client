@@ -9,3 +9,7 @@ export const getFormattedDate = (date) => {
 export const isMarkedAsFavorite = (favorites, mailId) => {
   return Boolean(favorites.find((id) => id === mailId));
 };
+
+export const isMailRead = (readMails, mailId) => {
+  return Boolean(readMails.find((id) => id === mailId));
+};

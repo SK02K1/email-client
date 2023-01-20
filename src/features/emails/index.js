@@ -4,6 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
   list: null,
   favorites: JSON.parse(localStorage.getItem('favorite-mails')) ?? [],
+  readMails: JSON.parse(localStorage.getItem('read-mails')) ?? [],
   total: null,
   error: null,
   status: 'idle',
@@ -49,6 +50,12 @@ const emailsSlice = createSlice({
       localStorage.setItem('favorite-mails', JSON.stringify(favorites));
       state.favorites = favorites;
     },
+    markAsRead: (state, { payload }) => {
+      const { mailId } = payload;
+      let readMails = state.readMails.concat(mailId);
+      localStorage.setItem('read-mails', JSON.stringify(readMails));
+      state.readMails = readMails;
+    },
   },
   extraReducers(builder) {
     // GET ALL EMAILS
@@ -71,5 +78,6 @@ const emailsSlice = createSlice({
   },
 });
 
-export const { markAsFavorite, removeFromFavorites } = emailsSlice.actions;
+export const { markAsFavorite, removeFromFavorites, markAsRead } =
+  emailsSlice.actions;
 export const emailsReducer = emailsSlice.reducer;
