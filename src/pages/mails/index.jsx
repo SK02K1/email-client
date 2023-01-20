@@ -31,7 +31,17 @@ export const Mails = () => {
 
   return (
     <div className='layout'>
-      <div className='mails-container'>{emails && emailsListing}</div>
+      <div className='mails-container'>
+        {emails && (
+          <div>
+            {filteredEmails.length > 0 ? (
+              emailsListing
+            ) : (
+              <p className='message mail-info-card'>no emails :)</p>
+            )}
+          </div>
+        )}
+      </div>
       <Outlet />
     </div>
   );
