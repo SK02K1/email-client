@@ -3,7 +3,19 @@ export const findMailById = (mails, mailId) => {
 };
 
 export const getFormattedDate = (date) => {
-  return new Date(date).toLocaleString('en-IN');
+  const dateObj = new Date(date);
+
+  const day = dateObj.getDate().toString().padStart(2, '0');
+  const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+  const year = dateObj.getFullYear();
+
+  let hours = dateObj.getHours();
+  const minutes = dateObj.getMinutes().toString().padStart(2, '0');
+  const ampm = hours >= 12 ? 'pm' : 'am';
+
+  hours = (hours % 12).toString().padStart(2, '0');
+
+  return `${day}/${month}/${year} ${hours}:${minutes}${ampm}`;
 };
 
 export const isMarkedAsFavorite = (favorites, mailId) => {
